@@ -1,0 +1,42 @@
+<div class="panel panel-primary">
+	<div class="panel-heading">
+		<h2>Product List</h2>
+	</div>
+	<div class="panel-body">
+		<table #dataTable class="table table-striped" style="width:100%">
+			<thead>
+				<tr>
+					<th>Product Id</th>
+					<th>Category Type</th>
+					<th>Create Time</th>
+					<th>Product Description</th>
+					<th>Product Icon</th>
+					<th>Product Name</th>
+					<th>Product price</th>
+					<th>Product Status</th>
+					<th>Product Stock</th>
+					<th>Update Time</th>
+					<th><button (click)="addProduct()" class="btn btn-secondary">Add Products</button></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let prod of product | async">
+					<td>{{prod.product_id}}</td>
+					<td>{{prod.category_type}}</td>
+					<td>{{prod.create_time}}</td>
+					<td>{{prod.product_description}}</td>
+					<td><img src="{{prod.product_icon}}" width="50px" height="50px"></td>
+					<td>{{prod.product_name}}</td>
+					<td>{{prod.product_price}}</td>
+					<td>{{prod.product_status}}</td>
+					<td>{{prod.product_stock}}</td>
+					<td>{{prod.update_time}}</td>
+					<td><button (click)="productDetails(prod.product_id)" class="btn btn-primary">Details</button></td>
+					<td><button (click)="deleteProduct(prod.product_id)" class="btn btn-danger">Delete</button></td>
+						<td><button (click)="updateProduct(prod.product_id)" class="btn btn-info" style="margin-left:10px">Update</button></td>
+						<!-- <button (click)="productDetails(prod.id)" class="btn btn-info" style="margin-left:10px">Details</button> -->
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
